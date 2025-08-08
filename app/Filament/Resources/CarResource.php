@@ -58,6 +58,10 @@ class CarResource extends Resource
                         'sport car' => 'SPORT CAR',
                         'city car' => 'MOBIL KOMERSIL',
                     ]),
+                    Forms\Components\TextInput::make('penumpang')
+                    ->label('Jumlah Penumpang')
+                    ->required()
+                    ->numeric(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Gambar Mobil')
                     ->disk('public')

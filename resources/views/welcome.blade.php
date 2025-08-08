@@ -471,17 +471,18 @@
             </div>
             <div class="row g-4">
                 <!-- Sample Car 1 -->
+                @foreach ( $car as $cars )
                 <div class="col-lg-4 col-md-6">
                     <div class="card car-card h-100">
-                        <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                        <img src="{{asset('storage').'/'.$cars->image}}"
                              class="car-image" alt="Toyota Avanza">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Toyota Avanza | Toyota</h5>
-                            <p class="card-text text-muted flex-grow-1">STATUS = TERSEDIA</p><hr>
-                            <p class="card-text text-muted flex-grow-1">TAHUN = 2022</p><hr>
-                            <p class="card-text text-muted flex-grow-1">TIPE MOBIL = MPV</p>
+                            <h5 class="card-title fw-bold"> {{ $cars->name }} | {{ $cars->brand }} </h5>
+                            <p class="card-text text-muted flex-grow-1">STATUS = {{ $cars->status }} </p><hr>
+                            <p class="card-text text-muted flex-grow-1">TAHUN = {{ $cars->year }} </p><hr>
+                            <p class="card-text text-muted flex-grow-1">TIPE MOBIL = {{ $cars->kategori }} </p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
-                                <span class="price-badge">Rp 350.000 /hari</span>
+                                <span class="price-badge">Rp {{ $cars->price_per_day }} /hari</span>
                                 <a href="https://wa.me/+6285211912131?text=Halo, saya tertarik dengan Toyota Avanza"
                                    class="btn btn-success" target="_blank">
                                     HUBUNGI KAMI
@@ -489,64 +490,13 @@
                             </div>
                             <div class="mt-3">
                                 <small class="text-muted">
-                                    <i class="fas fa-users me-1"></i>7 Penumpang
+                                    <i class="fas fa-users me-1"></i> {{ $cars->penumpang }} Penumpang
                                 </small>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Sample Car 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card car-card h-100">
-                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                             class="car-image" alt="Honda Brio">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Honda Brio | Honda</h5>
-                            <p class="card-text text-muted flex-grow-1">STATUS = TERSEDIA</p><hr>
-                            <p class="card-text text-muted flex-grow-1">TAHUN = 2021</p><hr>
-                            <p class="card-text text-muted flex-grow-1">TIPE MOBIL = HATCHBACK</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <span class="price-badge">Rp 250.000 /hari</span>
-                                <a href="https://wa.me/+6285211912131?text=Halo, saya tertarik dengan Honda Brio"
-                                   class="btn btn-success" target="_blank">
-                                    HUBUNGI KAMI
-                                </a>
-                            </div>
-                            <div class="mt-3">
-                                <small class="text-muted">
-                                    <i class="fas fa-users me-1"></i>5 Penumpang
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sample Car 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card car-card h-100">
-                        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                             class="car-image" alt="Mitsubishi Xpander">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Mitsubishi Xpander | Mitsubishi</h5>
-                            <p class="card-text text-muted flex-grow-1">STATUS = TERSEDIA</p><hr>
-                            <p class="card-text text-muted flex-grow-1">TAHUN = 2023</p><hr>
-                            <p class="card-text text-muted flex-grow-1">TIPE MOBIL = MPV</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <span class="price-badge">Rp 450.000 /hari</span>
-                                <a href="https://wa.me/+6285211912131?text=Halo, saya tertarik dengan Mitsubishi Xpander"
-                                   class="btn btn-success" target="_blank">
-                                    HUBUNGI KAMI
-                                </a>
-                            </div>
-                            <div class="mt-3">
-                                <small class="text-muted">
-                                    <i class="fas fa-users me-1"></i>7 Penumpang
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="text-center mt-5">
                 <a href="https://wa.me/+6285211912131?text=Halo, saya ingin melihat semua mobil yang tersedia"
