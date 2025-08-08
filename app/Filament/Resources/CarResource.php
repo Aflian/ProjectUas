@@ -61,7 +61,11 @@ class CarResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Gambar Mobil')
                     ->disk('public')
-                    ->image(),
+                    ->image()
+                    ->imagePreviewHeight('150') // kecilkan preview agar tidak berat
+                    ->maxSize(2048) // 2MB
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp']),
+
             ]);
     }
 
@@ -85,7 +89,10 @@ class CarResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('kategori'),
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->disk('public')
+                    ->circular() // optional: lebih ringan
+                    ->height(60),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

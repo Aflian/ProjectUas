@@ -164,6 +164,53 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
+        .promo-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .promo-section {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+
+        .member-promo {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            color: #2d3436;
+        }
+
+        .terms-section {
+            background: #f8f9fa;
+        }
+
+        .floating-wa {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            z-index: 1001;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-section {
                 padding: 60px 0;
@@ -177,8 +224,15 @@
 </head>
 <body>
 
+    <!-- Promo Banner -->
+    <div class="promo-banner text-center">
+        <div class="container">
+            <strong><i class="fas fa-fire me-2"></i>PROMO SPESIAL WEBSITE! Diskon 10% untuk pemesanan minimal 2 hari via transfer!</strong>
+        </div>
+    </div>
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand text-primary" href="#">
                 <i class="fas fa-car me-2"></i>JR|RentalMobil
@@ -198,17 +252,25 @@
                         <a class="nav-link" href="#cars">Daftar Mobil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kontak</a>
+                        <a class="nav-link" href="#promo">Promo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary ms-2" href="#login">
-                            <i class="fas fa-sign-in-alt me-1"></i>Login
-                        </a>
+                        <a class="nav-link" href="#lokasi">Lokasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/+6285211912131" class="floating-wa" target="_blank">
+        <div class="bg-success rounded-circle p-3 shadow">
+            <i class="fab fa-whatsapp fa-2x text-white"></i>
+        </div>
+    </a>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
@@ -240,7 +302,7 @@
             <div class="row">
                 <div class="col-md-3 col-6 mb-4 mb-md-0">
                     <div class="stat-item">
-                        <span class="stat-number"> {{ $HitungCar }} </span>
+                        <span class="stat-number">50+</span>
                         <p class="mb-0">Mobil Tersedia</p>
                     </div>
                 </div>
@@ -332,28 +394,96 @@
         </div>
     </section>
 
+    <!-- Promo Section -->
+    <section id="promo" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fw-bold">Promo Terbaru</h2>
+                <p class="lead text-muted">Dapatkan penawaran terbaik untuk rental mobil Anda</p>
+            </div>
+
+            <!-- Promo Website -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card promo-section border-0 shadow-lg">
+                        <div class="card-body text-center p-5">
+                            <h3 class="fw-bold mb-3">
+                                <i class="fas fa-globe me-2"></i>Promo Spesial Website
+                            </h3>
+                            <h4 class="mb-4">"Pesan Sekarang Melalui Website, Dapatkan Diskon 10%!"</h4>
+                            <p class="lead mb-4">Berlaku untuk pemesanan minimal 2 hari dan pembayaran via transfer.</p>
+                            <a href="https://wa.me/+6285211912131?text=Halo, saya tertarik dengan promo website diskon 10%"
+                               class="btn btn-light btn-lg me-3" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Pesan via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member Promo -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card member-promo border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <h3 class="fw-bold">
+                                    <i class="fas fa-crown me-2"></i>Promo Member Rental Mobil
+                                </h3>
+                                <h5>Hemat Lebih, Nyaman Maksimal!</h5>
+                                <p class="lead">Jadi Member Sekarang & Dapatkan Keuntungan Eksklusif!</p>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <h5 class="fw-bold mb-3">💎 Keuntungan Jadi Member:</h5>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Diskon Khusus Member hingga 30%</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Gratis 1x Sewa Setelah 5x Transaksi</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Prioritas Ketersediaan Mobil saat High Season</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Gratis Upgrade Mobil (jika tersedia)</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Promo Ulang Tahun: Diskon Spesial + Souvenir</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Layanan Antar-Jemput Gratis (Khusus Area Tertentu)</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                         class="img-fluid rounded mb-3" alt="Member Benefits">
+                                    <a href="https://wa.me/+6285211912131?text=Halo, saya ingin daftar jadi member JR Rental"
+                                       class="btn btn-success btn-lg" target="_blank">
+                                        <i class="fab fa-whatsapp me-2"></i>Daftar Member Sekarang
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Cars Section -->
-    <section id="cars" class="py-5">
+    <section id="cars" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title fw-bold">Mobil Tersedia</h2>
                 <p class="lead text-muted">Pilih mobil yang sesuai dengan kebutuhan perjalanan Anda</p>
             </div>
             <div class="row g-4">
-                @foreach ( $car as $cars )
+                <!-- Sample Car 1 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card car-card h-100">
-                        <img src="{{ asset('storage/' . $cars->image) }}" alt="FOTO MOBIL">
-
-
+                        <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                             class="car-image" alt="Toyota Avanza">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold"> {{ $cars->name }} | {{$cars->brand}} </h5>
-                            <p class="card-text text-muted flex-grow-1"> STATUS = {{ Str::upper($cars->status) }} </p><hr>
-                            <p class="card-text text-muted flex-grow-1"> TAHUN = {{ $cars->year }} </p><hr>
-                            <p class="card-text text-muted flex-grow-1"> TIPE MOBIL = {{ Str::upper($cars->kategori) }} </p>
+                            <h5 class="card-title fw-bold">Toyota Avanza | Toyota</h5>
+                            <p class="card-text text-muted flex-grow-1">STATUS = TERSEDIA</p><hr>
+                            <p class="card-text text-muted flex-grow-1">TAHUN = 2022</p><hr>
+                            <p class="card-text text-muted flex-grow-1">TIPE MOBIL = MPV</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
-                                <span class="price-badge">Rp 600.000/hari</span>
-                                <a href="https://wa.me/+6289508132431" class="btn btn-success" target="_blank">
+                                <span class="price-badge">Rp 350.000 /hari</span>
+                                <a href="https://wa.me/+6285211912131?text=Halo, saya tertarik dengan Toyota Avanza"
+                                   class="btn btn-success" target="_blank">
                                     HUBUNGI KAMI
                                 </a>
                             </div>
@@ -365,17 +495,216 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
 
+                <!-- Sample Car 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card car-card h-100">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                             class="car-image" alt="Honda Brio">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Honda Brio | Honda</h5>
+                            <p class="card-text text-muted flex-grow-1">STATUS = TERSEDIA</p><hr>
+                            <p class="card-text text-muted flex-grow-1">TAHUN = 2021</p><hr>
+                            <p class="card-text text-muted flex-grow-1">TIPE MOBIL = HATCHBACK</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price-badge">Rp 250.000 /hari</span>
+                                <a href="https://wa.me/+6285211912131?text=Halo, saya tertarik dengan Honda Brio"
+                                   class="btn btn-success" target="_blank">
+                                    HUBUNGI KAMI
+                                </a>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-users me-1"></i>5 Penumpang
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Car 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card car-card h-100">
+                        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                             class="car-image" alt="Mitsubishi Xpander">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Mitsubishi Xpander | Mitsubishi</h5>
+                            <p class="card-text text-muted flex-grow-1">STATUS = TERSEDIA</p><hr>
+                            <p class="card-text text-muted flex-grow-1">TAHUN = 2023</p><hr>
+                            <p class="card-text text-muted flex-grow-1">TIPE MOBIL = MPV</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price-badge">Rp 450.000 /hari</span>
+                                <a href="https://wa.me/+6285211912131?text=Halo, saya tertarik dengan Mitsubishi Xpander"
+                                   class="btn btn-success" target="_blank">
+                                    HUBUNGI KAMI
+                                </a>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-users me-1"></i>7 Penumpang
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="text-center mt-5">
-                <a href="#contact" class="btn btn-primary btn-lg">
-                    <i class="fas fa-eye me-2"></i>Lihat Semua Mobil
+                <a href="https://wa.me/+6285211912131?text=Halo, saya ingin melihat semua mobil yang tersedia"
+                   class="btn btn-primary btn-lg" target="_blank">
+                    <i class="fab fa-whatsapp me-2"></i>Lihat Semua Mobil
                 </a>
             </div>
         </div>
     </section>
-    {{-- testti --}}
+
+    <!-- Location Section -->
+    <section id="lokasi" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fw-bold">Lokasi JR Rentcar</h2>
+                <p class="lead text-muted">Kami hadir di pusat kota Bangkinang!</p>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow p-4">
+                        <h4 class="fw-bold mb-4">Temukan Kami dengan Mudah</h4>
+                        <p class="mb-4">Mulai perjalanan Anda dari lokasi strategis kami di pusat kota Bangkinang</p>
+
+                        <div class="mb-3">
+                            <h6 class="fw-bold"><i class="fas fa-map-marker-alt text-danger me-2"></i>Alamat:</h6>
+                            <p class="text-muted">Jl. Tuanku Tambusai No 23, Kecamatan Bangkinang</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6 class="fw-bold"><i class="fas fa-clock text-primary me-2"></i>Jam Operasional:</h6>
+                            <p class="text-muted">Setiap Hari (24 Jam)</p>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <a href="https://maps.google.com/?q=Jl.+Tuanku+Tambusai+no+23+Bangkinang+kota"
+                               class="btn btn-primary" target="_blank">
+                                <i class="fas fa-map-marked-alt me-2"></i>Lihat di Google Maps
+                            </a>
+                            <a href="https://wa.me/+6285211912131?text=Halo, saya ingin tahu lokasi JR Rental"
+                               class="btn btn-success" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Hubungi Kami
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         class="img-fluid rounded shadow" alt="Lokasi JR Rental">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms & Conditions Section -->
+    <section id="terms" class="py-5 terms-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fw-bold">Ketentuan Pemakaian Jasa Rental Mobil</h2>
+                <p class="lead text-muted">Dengan melakukan pemesanan melalui website ini, pelanggan dianggap telah membaca, memahami, dan menyetujui seluruh ketentuan di bawah ini</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow h-100 p-4">
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-user-check me-2"></i>1. Syarat Umum</h5>
+                        <ul class="text-muted">
+                            <li>Usia minimum penyewa adalah 21 tahun dan memiliki SIM A yang masih berlaku.</li>
+                            <li>Penyewa wajib memberikan identitas asli seperti KTP dan SIM saat pengambilan kendaraan.</li>
+                            <li>Kendaraan hanya boleh digunakan untuk keperluan yang sah dan tidak melanggar hukum.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow h-100 p-4">
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-calendar-alt me-2"></i>2. Pemesanan</h5>
+                        <ul class="text-muted">
+                            <li>Pemesanan dapat dilakukan melalui website, WhatsApp, atau langsung di kantor kami.</li>
+                            <li>Pelanggan wajib mengisi formulir pemesanan dengan data yang benar dan lengkap.</li>
+                            <li>Pemesanan dianggap sah setelah pembayaran uang muka (DP) minimal 30% dari total sewa.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow h-100 p-4">
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-credit-card me-2"></i>3. Pembayaran</h5>
+                        <ul class="text-muted">
+                            <li>Pembayaran bisa dilakukan melalui transfer bank atau metode lain yang disediakan.</li>
+                            <li>Sisa pembayaran wajib diselesaikan sebelum kendaraan digunakan.</li>
+                            <li>Tidak ada pengembalian uang atas pembatalan sepihak dari pelanggan kurang dari 24 jam sebelum waktu sewa.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow h-100 p-4">
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-car-side me-2"></i>4. Penggunaan Kendaraan</h5>
+                        <ul class="text-muted">
+                            <li>Kendaraan dilarang digunakan untuk balapan, uji coba, tindak kejahatan, atau membawa barang berbahaya.</li>
+                            <li>Penyewa bertanggung jawab atas bahan bakar, parkir, dan denda lalu lintas selama masa sewa.</li>
+                            <li>Penyewa wajib menjaga kebersihan dan kondisi kendaraan.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow h-100 p-4">
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-exclamation-triangle me-2"></i>5. Keterlambatan dan Denda</h5>
+                        <ul class="text-muted">
+                            <li>Keterlambatan pengembalian akan dikenakan denda sesuai tarif per jam atau per hari.</li>
+                            <li>Apabila keterlambatan melebihi 3 jam tanpa konfirmasi, kami berhak melakukan tindakan sesuai prosedur hukum.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow h-100 p-4">
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-tools me-2"></i>6. Kerusakan dan Kehilangan</h5>
+                        <ul class="text-muted">
+                            <li>Semua kerusakan akibat kelalaian penyewa menjadi tanggung jawab penyewa.</li>
+                            <li>Jika kendaraan hilang atau rusak berat, penyewa wajib mengganti sesuai nilai pasar kendaraan.</li>
+                            <li>Tersedia opsi asuransi tambahan untuk mengurangi beban ganti rugi.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow h-100 p-4">
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-times-circle me-2"></i>7. Pembatalan</h5>
+                        <ul class="text-muted">
+                            <li>Pembatalan pemesanan lebih dari 24 jam sebelum waktu sewa: DP dikembalikan 50%.</li>
+                            <li>Pembatalan mendadak (&lt;24 jam): DP hangus.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow h-100 p-4">
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-shield-alt me-2"></i>8. Force Majeure</h5>
+                        <ul class="text-muted">
+                            <li>Kami tidak bertanggung jawab atas keterlambatan atau pembatalan layanan akibat bencana alam, kerusuhan, atau keadaan darurat lain di luar kendali kami.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <div class="card border-0 shadow p-4">
+                    <h5 class="fw-bold text-success mb-3"><i class="fas fa-handshake me-2"></i>9. Persetujuan</h5>
+                    <p class="text-muted mb-0">Dengan menggunakan layanan kami, pelanggan menyetujui seluruh syarat dan ketentuan yang berlaku.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
     <section id="testimonials" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
@@ -437,7 +766,7 @@
                 <div class="col-lg-4">
                     <div class="card h-100 text-center p-4 border-0 shadow">
                         <div class="feature-icon mb-3">
-                            <i class="fas fa-envelope fa-2x "></i>
+                            <i class="fas fa-envelope fa-2x"></i>
                         </div>
                         <h5 class="fw-bold">Email</h5>
                         <p class="text-muted mb-3">Kirim pertanyaan Anda via email</p>
@@ -450,12 +779,12 @@
                 <!-- Telepon -->
                 <div class="col-lg-4">
                     <div class="card h-100 text-center p-4 border-0 shadow">
-                        <div class="feature-icon bg-light mb-3">
-                            <i class="fas fa-phone fa-2x "></i>
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-phone fa-2x"></i>
                         </div>
                         <h5 class="fw-bold">Telepon</h5>
                         <p class="text-muted mb-3">Hubungi kami langsung</p>
-                        <a href="https://wa.me/+6289508132431" class="btn btn-outline-primary" target="_blank">
+                        <a href="https://wa.me/+6285211912131" class="btn btn-outline-primary" target="_blank">
                             CONTACT US
                         </a>
                     </div>
@@ -469,7 +798,7 @@
                         </div>
                         <h5 class="fw-bold">WhatsApp</h5>
                         <p class="text-muted mb-3">Chat langsung dengan kami</p>
-                        <a href="https://wa.me/+6289508132431" class="btn btn-outline-success" target="_blank">
+                        <a href="https://wa.me/+6285211912131" class="btn btn-outline-success" target="_blank">
                             Chat WhatsApp
                         </a>
                     </div>
@@ -508,7 +837,7 @@
         </div>
     </section>
 
-    {{-- FOUNDER --}}
+    <!-- Founder Section -->
     <section id="founder" class="py-5 bg-white">
         <div class="container">
             <div class="text-center mb-5">
@@ -519,7 +848,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-4 col-lg-4">
                     <div class="card border-0 shadow text-center p-4">
-                        <img src="{{ asset('profile.jpg') }}" alt="Foto Founder" class="rounded-circle mx-auto mb-4" width="150" height="150" style="object-fit: cover;">
+                        <img src="{{asset('profile.jpg')}}"
+                             alt="Foto Founder" class="rounded-circle mx-auto mb-4" width="150" height="150" style="object-fit: cover;">
                         <h4 class="fw-bold mb-1">Rangga Yomudo</h4>
                         <p class="text-muted mb-3">Founder & CEO JR Rental</p>
                         <p class="text-muted fst-italic">
@@ -537,7 +867,8 @@
                 </div>
                 <div class="col-md-4 col-lg-4">
                     <div class="card border-0 shadow text-center p-4">
-                        <img src="{{ asset('Juando.jpg') }}" alt="Foto Founder" class="rounded-circle mx-auto mb-4" width="150" height="150" style="object-fit: cover;">
+                        <img src="{{ asset('Juando.jpg') }}"
+                             alt="Foto Founder" class="rounded-circle mx-auto mb-4" width="150" height="150" style="object-fit: cover;">
                         <h4 class="fw-bold mb-1">Juando</h4>
                         <p class="text-muted mb-3">CMO JR Rental</p>
                         <p class="text-muted fst-italic">
@@ -563,30 +894,29 @@
             <div class="row g-4">
                 <div class="col-lg-4">
                     <h5 class="fw-bold mb-3">
-                        <i class="fas fa-car me-2"></i>RentalMobil
+                        <i class="fas fa-car me-2"></i>JR|RentalMobil
                     </h5>
                     <p class="text-light">Platform rental mobil terpercaya dengan pelayanan terbaik di Indonesia. Wujudkan perjalanan impian Anda bersama kami.</p>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/jrrental_" class="text-light" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@jr..rental.kampar" class="text-light" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/+6285211912131" class="text-light" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h6 class="fw-bold mb-3">Layanan</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Panduan Booking</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Syarat & Ketentuan</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Kebijakan Privasi</a></li>
+                        <li><a href="#promo" class="text-light text-decoration-none">Promo Terbaru</a></li>
+                        <li><a href="#cars" class="text-light text-decoration-none">Daftar Mobil</a></li>
+                        <li><a href="#terms" class="text-light text-decoration-none">Syarat & Ketentuan</a></li>
+                        <li><a href="#lokasi" class="text-light text-decoration-none">Lokasi Kami</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h6 class="fw-bold mb-3">Kontak</h6>
                     <ul class="list-unstyled">
-                        <li class="text-light"><i class="fas fa-map-marker-alt me-2"></i>Jl.tuanku Tambusai no 23 Bangkinang kota</li>
-                        <li class="text-light"><i class="fas fa-phone me-2"></i>+6289508132431</li>
+                        <li class="text-light"><i class="fas fa-map-marker-alt me-2"></i>Jl. Tuanku Tambusai No 23 Bangkinang</li>
+                        <li class="text-light"><i class="fas fa-phone me-2"></i>+6285211912131</li>
                         <li class="text-light"><i class="fas fa-envelope me-2"></i>ranggayomudo01@gmail.com</li>
                     </ul>
                 </div>
@@ -594,7 +924,7 @@
             <hr class="my-4">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 RentalMobil. Semua hak dilindungi.</p>
+                    <p class="mb-0">&copy; 2024 JR RentalMobil. Semua hak dilindungi.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <p class="mb-0">Dibuat dengan <i class="fas fa-heart text-danger"></i> untuk Indonesia</p>
@@ -695,11 +1025,10 @@
         });
 
         // Car booking functionality
-        document.querySelectorAll('.car-card .btn-primary').forEach(button => {
+        document.querySelectorAll('.car-card .btn-success').forEach(button => {
             button.addEventListener('click', function() {
                 const carName = this.closest('.card').querySelector('.card-title').textContent;
-                alert(`Terima kasih! Anda akan dialihkan ke halaman booking untuk ${carName}`);
-                // Here you would typically redirect to booking page or open a modal
+                console.log(`Mengarahkan ke WhatsApp untuk ${carName}`);
             });
         });
 
@@ -711,6 +1040,21 @@
                 document.body.style.opacity = '1';
             }, 100);
         });
+
+        // Promo banner animation
+        const promoBanner = document.querySelector('.promo-banner');
+        let isAnimating = false;
+
+        setInterval(() => {
+            if (!isAnimating) {
+                isAnimating = true;
+                promoBanner.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    promoBanner.style.transform = 'scale(1)';
+                    isAnimating = false;
+                }, 200);
+            }
+        }, 3000);
     </script>
 
 </body>

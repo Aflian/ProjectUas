@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('brand');
             $table->string('plate_number')->unique();
             $table->integer('year');
+            $table->integer('penumpang')->default(7);
             $table->enum('status', ['tersedia', 'disewa'])->default('tersedia');
             $table->decimal('price_per_day', 10, 2);
             $table->decimal('denda_per_hari', 10, 2);
